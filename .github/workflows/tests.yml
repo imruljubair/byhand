@@ -1,0 +1,21 @@
+name: installer tests
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check shell syntax
+        run: sh -n install.sh
+
+      - name: Test installation and checksum rejection
+        run: sh tests/test_install.sh
