@@ -2,18 +2,19 @@
 
 Visual, by-hand explanations of AI systems.
 
-The current release visualizes installed Ollama and GGUF language models in
-the terminal:
+The first release visualizes local GGUF files and Llama 3.2 installed through
+Ollama:
 
 ```bash
 byhand model --ollama llama3.2
+byhand model /path/to/model.gguf
 ```
 
 ## Requirements
 
 - macOS
 - Apple Silicon (`arm64`)
-- An installed Ollama model when using `--ollama`
+- A local GGUF file, or the `llama3.2` Ollama model
 
 The current build is unsigned. It is distributed outside the Mac App Store
 and has not been notarized by Apple.
@@ -53,14 +54,11 @@ source "$HOME/.zprofile"
 ## Use
 
 ```bash
-# Installed Ollama model
+# Llama 3.2 installed through Ollama
 byhand model --ollama llama3.2
 
 # Local GGUF file
 byhand model /path/to/model.gguf
-
-# Public remote GGUF
-byhand model --url "https://example.com/model.gguf"
 
 # Help and version
 byhand model --help
@@ -104,3 +102,6 @@ application source code is maintained separately in a private repository.
 
 Release downloads include `SHA256SUMS`; the installer verifies the archive
 before extracting or installing it.
+
+Remote GGUF URLs, additional Ollama model families, and output formats will be
+enabled gradually in later tested releases.
