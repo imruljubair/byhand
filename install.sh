@@ -39,10 +39,10 @@ else
 fi
 
 echo "Downloading byhand for Apple Silicon..."
-curl -fL --retry 3 --connect-timeout 10 \
+curl -fsSL --retry 3 --connect-timeout 10 \
     "$release_url/$asset" \
     -o "$temporary_dir/$asset"
-curl -fL --retry 3 --connect-timeout 10 \
+curl -fsSL --retry 3 --connect-timeout 10 \
     "$release_url/SHA256SUMS" \
     -o "$temporary_dir/SHA256SUMS"
 
