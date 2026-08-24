@@ -88,8 +88,30 @@ without a web server or external dependencies.
 
 ## Update
 
-Run the installer again. It downloads and verifies the latest release before
-replacing the existing executable:
+Starting with version 0.3.0, the standalone binary checks for a newer stable
+release at most once every 24 hours. When one is available, it asks before
+downloading anything:
+
+```text
+A new byhand version is available: 0.4.0
+Installed version: 0.3.0
+Update now? [y/N]:
+```
+
+Check or update explicitly at any time:
+
+```bash
+byhand update --check
+byhand update
+byhand update --yes
+```
+
+Downloaded updates are checked against the release's `SHA256SUMS` before the
+executable is replaced. Set `BYHAND_NO_UPDATE_CHECK=1` to disable automatic
+checks; explicit update commands remain available.
+
+You can also run the installer again. It downloads and verifies the latest
+release before replacing the existing executable:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh | sh
@@ -99,7 +121,7 @@ To install a specific version:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh \
-  | BYHAND_VERSION=v0.2.0 sh
+  | BYHAND_VERSION=v0.3.0 sh
 ```
 
 ## Uninstall
@@ -124,6 +146,8 @@ application source code is maintained separately in a private repository.
 Release downloads include `SHA256SUMS`; the installer verifies the archive
 before extracting or installing it.
 
-Version 0.2.0 enables terminal and HTML output for the Llama visualization
-family across Ollama, local, and remote sources. Other engine-supported model
-families will be enabled gradually in later tested releases.
+Version 0.3.0 includes automatic update notifications and verified standalone
+self-updates. Terminal and HTML output remain enabled for the Llama
+visualization family across Ollama, local, and remote sources. Other
+engine-supported model families will be enabled gradually in later tested
+releases.
