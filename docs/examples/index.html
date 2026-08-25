@@ -38,6 +38,36 @@
         <p class="lead" style="margin-left: 0">byhand is terminal-first. When a visualization needs to travel, export the same model explanation as a self-contained HTML file with no server or new application required.</p>
       </header>
 
+      <section class="visual-tour" aria-labelledby="visual-tour-title">
+        <div class="visual-tour-heading">
+          <p class="eyebrow">Terminal workflow</p>
+          <h2 id="visual-tour-title">From command to explanation.</h2>
+        </div>
+
+        <div class="screenshot-grid">
+          <figure class="screenshot-card screenshot-step-1">
+            <a href="../assets/comm.png" aria-label="Open the terminal command screenshot at full resolution">
+              <img src="../assets/comm.png" width="2296" height="1054" loading="lazy" decoding="async" alt="Terminal showing the byhand welcome screen and the command byhand model --ollama tinyllama">
+            </a>
+            <figcaption><span>01</span> Run a model from the terminal</figcaption>
+          </figure>
+
+          <figure class="screenshot-card screenshot-step-2">
+            <a href="../assets/modelv.png" aria-label="Open the model view screenshot at full resolution">
+              <img src="../assets/modelv.png" width="2699" height="2255" loading="lazy" decoding="async" alt="byhand model view showing matrices, dimensions, grouped attention blocks, and an operation annotation">
+            </a>
+            <figcaption><span>02</span> Navigate the model view</figcaption>
+          </figure>
+
+          <figure class="screenshot-card screenshot-step-3">
+            <a href="../assets/expv.png" aria-label="Open the Operation Explainer screenshot at full resolution">
+              <img src="../assets/expv.png" width="2108" height="1695" loading="lazy" decoding="async" alt="byhand Operation Explainer showing operands, the selected result cell, and matrix multiplication math">
+            </a>
+            <figcaption><span>03</span> Inspect an operation</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section class="example-shell" aria-labelledby="llama-example-title">
         <div class="example-header">
           <div>
@@ -47,7 +77,7 @@
           <a class="button button-secondary" href="./llama3.2.html">Open full screen</a>
         </div>
         <div class="example-viewport">
-          <iframe class="example-frame" src="./llama3.2.html#embedded-preview" loading="lazy" title="Interactive Llama 3.2 model visualization"></iframe>
+          <iframe class="example-frame" src="./llama3.2.html?embedded=1" loading="lazy" title="Interactive Llama 3.2 model visualization"></iframe>
         </div>
       </section>
 

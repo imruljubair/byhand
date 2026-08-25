@@ -1,9 +1,14 @@
 <!doctype html>
-<html lang="en" id="embedded-preview">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Llama 3.2 3B Instruct · byhand</title>
+  <script>
+    if (new URLSearchParams(window.location.search).has("embedded")) {
+      document.documentElement.classList.add("embedded-preview");
+    }
+  </script>
   <style>
     :root { color-scheme: dark; }
     * { box-sizing: border-box; }
@@ -20,12 +25,13 @@
       position: sticky; top: 0; z-index: 2; display: flex; align-items: center;
       gap: 12px; min-height: 58px; padding: 10px 16px;
       background: rgb(17 18 21 / 94%); border-bottom: 1px solid #303238;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px); font-size: 12px;
     }
     .identity { min-width: 210px; margin-right: auto; }
     .identity strong { display: block; color: #fff; font-size: 14px; }
     .identity span { color: #9699a1; font-size: 12px; }
     button {
+      flex: 0 0 auto; white-space: nowrap;
       min-width: 42px; height: 34px; padding: 0 12px;
       border: 1px solid #494c54; border-radius: 6px;
       background: #22242a; color: #f0f0f0; font: inherit; cursor: pointer;
@@ -36,7 +42,7 @@
     button:disabled { cursor: default; opacity: .35; }
     button[hidden] { display: none; }
     .layout-switch {
-      display: flex; padding: 3px; border: 1px solid #3a3d44;
+      display: flex; flex: 0 0 auto; padding: 3px; border: 1px solid #3a3d44;
       border-radius: 8px; background: #17191d;
     }
     .layout-switch button {
@@ -46,7 +52,13 @@
     .layout-switch button[aria-pressed="true"] {
       background: #343740; color: #fff; box-shadow: 0 0 0 1px #50545e;
     }
-    #position { min-width: 70px; text-align: center; font-size: 13px; }
+    #position {
+      display: inline-flex; flex: 0 0 auto; align-items: center;
+      justify-content: center; min-width: 64px; height: 34px; padding: 0 8px;
+      border: 1px solid #494c54; border-radius: 6px;
+      background: #22242a; color: #d9dbe1; font-size: 12px;
+      text-align: center; white-space: nowrap;
+    }
     .workspace { display: flex; flex: 1 1 auto; min-height: 0; }
     .viewport {
       flex: 1 1 auto; min-height: 0; overflow: auto; padding: 18px;
@@ -82,20 +94,25 @@
       vertical-align: top;
       white-space: pre;
     }
-    html:target .terminal { font-size: 11px; }
-    html:target .side-terminal { font-size: 10px; }
+    html.embedded-preview .terminal { font-size: 11px; }
+    html.embedded-preview .side-terminal { font-size: 10px; }
     .hint { color: #737780; font-size: 12px; white-space: nowrap; }
-    @media (max-width: 720px) {
+    @media (max-width: 960px) {
       .toolbar { flex-wrap: wrap; gap: 8px; }
       .identity { flex: 1 0 100%; }
-      .hint { margin-left: auto; }
-      .viewport { padding: 12px; }
+      .toolbar > button { height: 34px; }
+      .layout-switch button { height: 28px; }
+      .hint { margin-left: auto; white-space: normal; }
+    }
+    @media (max-width: 720px) {
+      .viewport { padding: 10px; }
       .terminal { font-size: 12px; }
       .workspace { flex-direction: column; }
       .side-explainer {
         flex: 0 0 46%; border-top: 1px solid #303238; border-left: 0;
       }
-      .side-viewport { padding: 12px; }
+      .side-viewport { padding: 10px; }
+      .side-close { height: 38px; }
     }
   </style>
 </head>
