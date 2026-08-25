@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" id="embedded-preview">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -82,6 +82,8 @@
       vertical-align: top;
       white-space: pre;
     }
+    html:target .terminal { font-size: 11px; }
+    html:target .side-terminal { font-size: 10px; }
     .hint { color: #737780; font-size: 12px; white-space: nowrap; }
     @media (max-width: 720px) {
       .toolbar { flex-wrap: wrap; gap: 8px; }

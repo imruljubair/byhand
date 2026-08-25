@@ -97,10 +97,10 @@ a:hover {
 }
 
 .hero {
-  min-height: 640px;
+  min-height: 720px;
   display: grid;
   place-items: center;
-  padding: 7rem 0;
+  padding: 8rem 0;
   text-align: center;
 }
 
@@ -129,6 +129,10 @@ h1 {
   margin-bottom: 1.5rem;
   font-size: clamp(3rem, 7vw, 5.8rem);
   font-weight: 500;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
 }
 
 h2 {
@@ -340,13 +344,19 @@ pre {
   font-size: 0.9rem;
 }
 
-.example-frame {
-  display: block;
+.example-viewport {
   width: 100%;
   height: min(76vh, 820px);
   min-height: 560px;
-  border: 0;
+  overflow: hidden;
   background: #101010;
+}
+
+.example-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .command-grid {
@@ -396,8 +406,8 @@ pre {
   }
 
   .hero {
-    min-height: 560px;
-    padding: 5rem 0;
+    min-height: 640px;
+    padding: 6rem 0;
   }
 
   .section,
@@ -428,7 +438,7 @@ pre {
     flex-direction: column;
   }
 
-  .example-frame {
+  .example-viewport {
     min-height: 480px;
   }
 }

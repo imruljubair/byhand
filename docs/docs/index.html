@@ -34,8 +34,8 @@
     <main id="main" class="container">
       <header class="page-intro">
         <p class="eyebrow">Documentation</p>
-        <h1>Start visualizing.</h1>
-        <p class="lead" style="margin-left: 0">Install byhand, open a compatible model, and step through its architecture in the terminal or a self-contained browser view.</p>
+        <h1>Start in the terminal.</h1>
+        <p class="lead" style="margin-left: 0">No new interface or setup-heavy workspace. Install byhand, open a compatible model, and step through its architecture where you already work.</p>
       </header>
 
       <div class="docs-layout">
@@ -77,6 +77,7 @@ source "$HOME/.zprofile"</code></pre>
 
           <section id="use">
             <h2>Use</h2>
+            <p>The terminal visualization is the default. Run one command, then navigate the model without switching to another application.</p>
             <h3>Ollama model</h3>
             <pre><code>byhand model --ollama llama3.2
 byhand model --ollama tinyllama</code></pre>
@@ -94,7 +95,7 @@ byhand --version</code></pre>
           <section id="html-export">
             <h2>HTML export</h2>
             <pre><code>byhand model --ollama llama3.2 --output html</code></pre>
-            <p>The exported file contains every model step and Operation Explainer. It opens directly in a browser without a web server or external dependencies.</p>
+            <p>HTML is an optional extension of the terminal-first workflow. Use it when you want to share a visualization or explore it on a larger canvas. The exported file contains every model step and Operation Explainer and opens without a web server or external dependencies.</p>
             <p><strong>Full</strong> is the default Explainer layout. Select <strong>Side</strong> before opening the Explainer to keep the model visible beside it, or above it on narrow screens.</p>
           </section>
 
