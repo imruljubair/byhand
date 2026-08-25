@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Docs · byhand visualization tools</title>
+    <meta name="description" content="Install and use byhand visualization tools with Ollama, local GGUF files, and public model URLs.">
+    <meta property="og:title" content="Docs · byhand visualization tools">
+    <meta property="og:description" content="Install and use byhand with Ollama, local GGUF files, and public model URLs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://imruljubair.github.io/byhand/docs/">
+    <meta property="og:image" content="https://imruljubair.github.io/byhand/assets/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Docs · byhand visualization tools">
+    <meta name="twitter:description" content="Install and use byhand with Ollama, local GGUF files, and public model URLs.">
+    <meta name="twitter:image" content="https://imruljubair.github.io/byhand/assets/og.png">
+    <link rel="canonical" href="https://imruljubair.github.io/byhand/docs/">
+    <link rel="stylesheet" href="../assets/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="../">byhand visualizer</a>
+        <div class="nav-links">
+          <a href="../">About</a>
+          <a href="./" aria-current="page">Docs</a>
+          <a href="../examples/">Examples</a>
+          <a href="https://github.com/imruljubair/byhand">GitHub</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="container">
+      <header class="page-intro">
+        <p class="eyebrow">Documentation</p>
+        <h1>Start visualizing.</h1>
+        <p class="lead" style="margin-left: 0">Install byhand, open a compatible model, and step through its architecture in the terminal or a self-contained browser view.</p>
+      </header>
+
+      <div class="docs-layout">
+        <nav class="docs-nav" aria-label="Documentation sections">
+          <a href="#requirements">Requirements</a>
+          <a href="#install">Install</a>
+          <a href="#use">Use</a>
+          <a href="#html-export">HTML export</a>
+          <a href="#update">Update</a>
+          <a href="#uninstall">Uninstall</a>
+          <a href="#troubleshooting">Troubleshooting</a>
+        </nav>
+
+        <article class="prose">
+          <section id="requirements">
+            <h2>Requirements</h2>
+            <ul>
+              <li>macOS on Apple Silicon (<code>arm64</code>)</li>
+              <li>A compatible Llama-family model from Ollama, a local GGUF file, or a public GGUF URL</li>
+              <li>HTTP range-request support when using a remote model URL</li>
+            </ul>
+            <p class="note">The current build is unsigned and has not been notarized by Apple.</p>
+          </section>
+
+          <section id="install">
+            <h2>Install</h2>
+            <p>Review the installer before running it:</p>
+            <pre><code>curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh</code></pre>
+            <p>Install the latest release:</p>
+            <pre><code>curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh | sh</code></pre>
+            <p>The default location is <code>/usr/local/bin/byhand</code>. To install without administrator permission:</p>
+            <pre><code>mkdir -p "$HOME/.local/bin"
+curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh \
+  | BYHAND_INSTALL_DIR="$HOME/.local/bin" sh</code></pre>
+            <p>If necessary, add that directory to your shell path:</p>
+            <pre><code>echo 'export PATH="$HOME/.local/bin:$PATH"' &gt;&gt; "$HOME/.zprofile"
+source "$HOME/.zprofile"</code></pre>
+          </section>
+
+          <section id="use">
+            <h2>Use</h2>
+            <h3>Ollama model</h3>
+            <pre><code>byhand model --ollama llama3.2
+byhand model --ollama tinyllama</code></pre>
+            <h3>Local GGUF file</h3>
+            <pre><code>byhand model /path/to/model.gguf</code></pre>
+            <h3>Public remote GGUF file</h3>
+            <pre><code>byhand model --url https://example.com/model.gguf</code></pre>
+            <h3>Help and version</h3>
+            <pre><code>byhand
+byhand model --help
+byhand --version</code></pre>
+            <p>Model availability is determined from GGUF metadata, not the filename, Ollama repository name, or input source.</p>
+          </section>
+
+          <section id="html-export">
+            <h2>HTML export</h2>
+            <pre><code>byhand model --ollama llama3.2 --output html</code></pre>
+            <p>The exported file contains every model step and Operation Explainer. It opens directly in a browser without a web server or external dependencies.</p>
+            <p><strong>Full</strong> is the default Explainer layout. Select <strong>Side</strong> before opening the Explainer to keep the model visible beside it, or above it on narrow screens.</p>
+          </section>
+
+          <section id="update">
+            <h2>Update</h2>
+            <p>byhand checks for a newer stable release at most once every 24 hours and asks before downloading. You can also check or update explicitly:</p>
+            <pre><code>byhand update --check
+byhand update
+byhand update --yes</code></pre>
+            <p>Downloaded updates are verified against the release's <code>SHA256SUMS</code> before the executable is replaced. Set <code>BYHAND_NO_UPDATE_CHECK=1</code> to disable automatic checks.</p>
+            <p>To install a specific version:</p>
+            <pre><code>curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh \
+  | BYHAND_VERSION=v0.4.3 sh</code></pre>
+          </section>
+
+          <section id="uninstall">
+            <h2>Uninstall</h2>
+            <p>For the default installation:</p>
+            <pre><code>sudo rm /usr/local/bin/byhand</code></pre>
+            <p>For a user installation:</p>
+            <pre><code>rm "$HOME/.local/bin/byhand"</code></pre>
+          </section>
+
+          <section id="troubleshooting">
+            <h2>Troubleshooting</h2>
+            <h3>Command not found</h3>
+            <p>Confirm the installation directory is included in your <code>PATH</code>. User installations normally use <code>$HOME/.local/bin</code>.</p>
+            <h3>Ollama model not found</h3>
+            <p>Make sure Ollama is running and the requested model is already installed locally.</p>
+            <h3>Remote URL does not open</h3>
+            <p>The server must make the GGUF file publicly available and support HTTP range requests.</p>
+            <h3>Updating version 0.3.0</h3>
+            <p>That release did not include its CA certificate bundle correctly. Use the macOS system bundle for the one-time update:</p>
+            <pre><code>SSL_CERT_FILE=/etc/ssl/cert.pem byhand update</code></pre>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>byhand visualizer · A visualization project from byhand</span>
+        <div class="footer-links">
+          <a href="https://www.byhand.ai/">byhand.ai</a>
+          <a href="https://github.com/imruljubair/byhand">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

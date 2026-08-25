@@ -2,6 +2,10 @@
 
 Visual, by-hand explanations of AI systems.
 
+[byhand visualization tools](https://imruljubair.github.io/byhand/) ·
+[Documentation](https://imruljubair.github.io/byhand/docs/) ·
+[Interactive example](https://imruljubair.github.io/byhand/examples/)
+
 The current release visualizes Llama-family GGUF models from Ollama, local
 files, or public remote URLs. Terminal visualization is the default, and the
 same interactive model view can be exported as a self-contained HTML file.
