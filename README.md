@@ -83,8 +83,10 @@ byhand --version
 
 The HTML export contains every model step and Operation Explainer, supports
 keyboard and button navigation, and automatically scrolls to keep the active
-operation or selected explainer cell visible. It opens directly in a browser
-without a web server or external dependencies.
+operation visible. Full is the default Explainer layout. Select Side before
+opening the Explainer to keep the model visible and place the same interactive
+explainer on the right, or below the model on narrow screens. It opens directly
+in a browser without a web server or external dependencies.
 
 ## Update
 
@@ -111,8 +113,8 @@ executable is replaced. Set `BYHAND_NO_UPDATE_CHECK=1` to disable automatic
 checks; explicit update commands remain available.
 
 Version 0.3.0 did not include its CA certificate bundle correctly. To update
-that specific version after 0.3.1 is published, use the macOS system bundle
-for the one-time update:
+from that specific version, use the macOS system bundle for the one-time
+update:
 
 ```bash
 SSL_CERT_FILE=/etc/ssl/cert.pem byhand update
@@ -129,7 +131,7 @@ To install a specific version:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh \
-  | BYHAND_VERSION=v0.3.1 sh
+  | BYHAND_VERSION=v0.4.0 sh
 ```
 
 ## Uninstall
@@ -154,8 +156,8 @@ application source code is maintained separately in a private repository.
 Release downloads include `SHA256SUMS`; the installer verifies the archive
 before extracting or installing it.
 
-Version 0.3.1 includes automatic update notifications and verified standalone
-self-updates with a bundled CA certificate store. Terminal and HTML output
-remain enabled for the Llama visualization family across Ollama, local, and
-remote sources. Other engine-supported model families will be enabled
-gradually in later tested releases.
+Version 0.4.0 adds Full and Side HTML Operation Explainer layouts and replaces
+the learned-weight border marker with an embedded hollow diamond. Terminal and
+HTML output remain enabled for the Llama visualization family across Ollama,
+local, and remote sources. Other engine-supported model families will be
+enabled gradually in later tested releases.
