@@ -112,6 +112,11 @@ Downloaded updates are checked against the release's `SHA256SUMS` before the
 executable is replaced. Set `BYHAND_NO_UPDATE_CHECK=1` to disable automatic
 checks; explicit update commands remain available.
 
+If `byhand` is installed in a root-owned location such as `/usr/local/bin`, it
+downloads and verifies the update as the normal user, then requests the macOS
+password through `sudo` for only the final installation step. User-owned
+installations update without administrator permission.
+
 Version 0.3.0 did not include its CA certificate bundle correctly. To update
 from that specific version, use the macOS system bundle for the one-time
 update:
@@ -131,7 +136,7 @@ To install a specific version:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh \
-  | BYHAND_VERSION=v0.4.0 sh
+  | BYHAND_VERSION=v0.4.1 sh
 ```
 
 ## Uninstall
@@ -156,8 +161,10 @@ application source code is maintained separately in a private repository.
 Release downloads include `SHA256SUMS`; the installer verifies the archive
 before extracting or installing it.
 
-Version 0.4.0 adds Full and Side HTML Operation Explainer layouts and replaces
-the learned-weight border marker with an embedded hollow diamond. Terminal and
-HTML output remain enabled for the Llama visualization family across Ollama,
-local, and remote sources. Other engine-supported model families will be
-enabled gradually in later tested releases.
+Version 0.4.1 lets verified self-updates request administrator permission for
+the final installation into root-owned locations. Version 0.4.0 added Full and
+Side HTML Operation Explainer layouts and replaced the learned-weight border
+marker with an embedded hollow diamond. Terminal and HTML output remain
+enabled for the Llama visualization family across Ollama, local, and remote
+sources. Other engine-supported model families will be enabled gradually in
+later tested releases.
