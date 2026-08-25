@@ -163,11 +163,11 @@ Release downloads include `SHA256SUMS`; the installer verifies the archive
 before extracting or installing it.
 
 Version 0.4.2 adds an interactive terminal welcome screen with the byhand logo
-when `byhand` is launched without a subcommand. Version 0.4.1 lets verified
-self-updates request administrator permission for the final installation into
-root-owned locations. Version 0.4.0 added Full and Side HTML Operation
-Explainer layouts and replaced the learned-weight border marker with an
-embedded hollow diamond. Terminal and HTML output remain enabled for the Llama
-visualization family across Ollama, local, and remote sources. Other
-engine-supported model families will be enabled gradually in later tested
-releases.
+when `byhand` is launched without a subcommand and after successful interactive
+installs or updates. Version 0.4.1 lets verified self-updates request
+administrator permission for the final installation into root-owned locations.
+Version 0.4.0 added Full and Side HTML Operation Explainer layouts and replaced
+the learned-weight border marker with an embedded hollow diamond. Terminal and
+HTML output remain enabled for the Llama visualization family across Ollama,
+local, and remote sources. Other engine-supported model families will be
+enabled gradually in later tested releases.

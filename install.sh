@@ -97,4 +97,11 @@ case ":${PATH:-}:" in
         ;;
 esac
 
-echo "Run: byhand model --ollama llama3.2"
+if [ -t 1 ]; then
+    echo ""
+    if ! "$install_dir/byhand"; then
+        echo "Run: byhand model --ollama llama3.2"
+    fi
+else
+    echo "Run: byhand model --ollama llama3.2"
+fi
