@@ -110,6 +110,14 @@ Downloaded updates are checked against the release's `SHA256SUMS` before the
 executable is replaced. Set `BYHAND_NO_UPDATE_CHECK=1` to disable automatic
 checks; explicit update commands remain available.
 
+Version 0.3.0 did not include its CA certificate bundle correctly. To update
+that specific version after 0.3.1 is published, use the macOS system bundle
+for the one-time update:
+
+```bash
+SSL_CERT_FILE=/etc/ssl/cert.pem byhand update
+```
+
 You can also run the installer again. It downloads and verifies the latest
 release before replacing the existing executable:
 
@@ -121,7 +129,7 @@ To install a specific version:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh \
-  | BYHAND_VERSION=v0.3.0 sh
+  | BYHAND_VERSION=v0.3.1 sh
 ```
 
 ## Uninstall
@@ -146,8 +154,8 @@ application source code is maintained separately in a private repository.
 Release downloads include `SHA256SUMS`; the installer verifies the archive
 before extracting or installing it.
 
-Version 0.3.0 includes automatic update notifications and verified standalone
-self-updates. Terminal and HTML output remain enabled for the Llama
-visualization family across Ollama, local, and remote sources. Other
-engine-supported model families will be enabled gradually in later tested
-releases.
+Version 0.3.1 includes automatic update notifications and verified standalone
+self-updates with a bundled CA certificate store. Terminal and HTML output
+remain enabled for the Llama visualization family across Ollama, local, and
+remote sources. Other engine-supported model families will be enabled
+gradually in later tested releases.
