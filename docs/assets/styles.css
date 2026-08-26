@@ -84,6 +84,11 @@ a:hover {
   white-space: nowrap;
 }
 
+.product-command {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: -0.04em;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -112,6 +117,10 @@ a:hover {
 .container {
   width: min(calc(100% - 2rem), var(--max-width));
   margin: 0 auto;
+}
+
+.home-page main .container {
+  max-width: 1040px;
 }
 
 .hero {
@@ -149,9 +158,11 @@ a:hover {
   font-weight: 700;
 }
 
-.cli-copy em {
+.cli-intro code {
   color: var(--accent-text);
-  font-style: normal;
+  background: transparent;
+  padding: 0;
+  font-size: 0.95em;
   font-weight: 700;
 }
 
@@ -221,6 +232,9 @@ a:hover {
 
 .cli-card-list {
   display: grid;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
@@ -262,11 +276,9 @@ a:hover {
 :is(
   .terminal-page-title,
   .terminal-section-title,
-  .visual-tour-heading h2,
   .section-heading h2,
   .example-header h2,
-  .prose h2,
-  .command-grid h3
+  .prose h2
 )::before {
   content: ">_";
   margin-right: 0.45em;
@@ -420,7 +432,6 @@ h3 {
 
 .grid-three > *,
 .install-panel > *,
-.command-grid > *,
 .docs-layout > * {
   min-width: 0;
 }
@@ -556,18 +567,20 @@ pre code {
 }
 
 .visual-tour {
-  margin-bottom: 4.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .visual-tour-heading {
-  max-width: 650px;
-  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto 1.25rem;
 }
 
 .screenshot-grid {
   display: grid;
   width: 100%;
   max-width: 880px;
+  margin: 0 auto;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: 1rem;
@@ -634,27 +647,14 @@ pre code {
 .example-shell {
   width: 100%;
   max-width: 880px;
-  margin-bottom: 5rem;
+  margin: 0 auto 1.25rem;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 14px;
 }
 
-.example-command {
-  padding: 1.15rem 1.25rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.example-command .eyebrow {
-  margin-bottom: 0.65rem;
-}
-
-.example-command pre {
-  padding: 0.85rem 1rem;
-  border-left: 2px solid var(--accent);
-}
-
 .example-header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -668,9 +668,44 @@ pre code {
   margin: 0;
 }
 
+.example-header h2 {
+  margin-bottom: 0.35rem;
+  font-size: clamp(1.65rem, 3vw, 2rem);
+}
+
 .example-header p {
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.example-header .eyebrow {
+  margin-bottom: 0.45rem;
+  color: var(--accent-text);
+  font-size: 0.78rem;
+}
+
+.example-heading-copy {
+  min-width: 0;
+  flex: 1;
+  padding-right: 3.75rem;
+}
+
+.example-open-button {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.25rem;
+  width: 46px;
+  min-width: 46px;
+  height: 46px;
+  padding: 0;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.example-header .example-export-command {
+  margin-top: 0.7rem;
+  padding: 0.75rem 0.9rem;
+  border-left: 2px solid var(--accent);
 }
 
 .example-viewport {
@@ -687,15 +722,18 @@ pre code {
   border: 0;
 }
 
-.command-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+.examples-docs-link {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
   padding-bottom: 5rem;
 }
 
-.command-grid .card {
-  min-height: auto;
+.examples-docs-link a {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration-color: var(--accent);
 }
 
 .site-footer {
@@ -799,13 +837,11 @@ pre code {
   .grid-three,
   .cli-card-list,
   .install-panel,
-  .command-grid,
   .screenshot-grid {
     grid-template-columns: 1fr;
   }
 
   .grid-three,
-  .command-grid,
   .screenshot-grid {
     gap: 0.8rem;
   }
@@ -896,7 +932,7 @@ pre code {
     flex-wrap: wrap;
   }
 
-  .command-grid {
+  .examples-docs-link {
     padding-bottom: 3.5rem;
   }
 }
@@ -947,10 +983,6 @@ pre code {
 
   .prose ul {
     padding-left: 1.25rem;
-  }
-
-  .example-header .button {
-    width: 100%;
   }
 
   .example-viewport {
