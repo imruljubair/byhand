@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>byhand visualization tools</title>
+    <title>byhand CLI</title>
     <meta name="description" content="Low-effort AI model visualization in the terminal you already use, with no complex new interface to learn.">
-    <meta property="og:title" content="byhand visualization tools">
+    <meta property="og:title" content="byhand CLI">
     <meta property="og:description" content="Make AI models easier to understand without adding another complex interface.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://imruljubair.github.io/byhand/">
@@ -13,7 +13,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="byhand visualization tools">
+    <meta name="twitter:title" content="byhand CLI">
     <meta name="twitter:description" content="Make AI models easier to understand without adding another complex interface.">
     <meta name="twitter:image" content="https://imruljubair.github.io/byhand/assets/og.png">
     <link rel="canonical" href="https://imruljubair.github.io/byhand/">
@@ -23,7 +23,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <nav class="nav" aria-label="Primary navigation">
-        <a class="brand" href="./" aria-current="page">byhand visualizer</a>
+        <a class="brand" href="./" aria-current="page">byhand CLI</a>
         <div class="nav-links">
           <a href="./" aria-current="page">About</a>
           <a href="./docs/">Docs</a>
@@ -34,50 +34,44 @@
     </header>
 
     <main id="main">
-      <section class="hero container">
-        <div class="hero-inner">
-          <p class="eyebrow">byhand visualization tools</p>
-          <h1 class="hero-title">Model visualization,<br class="desktop-break"> without another app.</h1>
-          <div class="actions">
-            <a class="button" href="./docs/#install">Install byhand</a>
-            <a class="button button-secondary" href="./examples/">View interactive example</a>
+      <section class="cli-hero container" aria-labelledby="cli-title">
+        <div class="cli-hero-layout">
+          <div class="cli-copy">
+            <h1 id="cli-title"><span class="terminal-prompt">&gt;_</span> byhand <span class="cli-title-end"><strong>CLI</strong><img class="cli-title-logo" src="./assets/logo.png" alt="" aria-hidden="true" decoding="async"></span></h1>
+            <div class="cli-intro">
+              <p>
+                <span><a class="research-link" href="https://www.byhand.ai/">By Hand Research</a> studies model interpretability and explainability at the math and algorithm level.</span>
+              </p>
+              <p>
+                <span>byhand <em>CLI</em> is a tool that extends this explainability by visualizing models and AI systems <i class="terminal-cursor" aria-hidden="true"></i></span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">About</p>
-            <h2>Visualization should reduce complexity, not add to it.</h2>
-            <p>The terminal is a no-new-UI space: already installed, already familiar, and close to the models you run. byhand turns it into a navigable explanation without asking you to adopt another tool or workflow.</p>
-          </div>
-          <div class="grid-three">
-            <article class="card">
+      <section class="cli-principles container" aria-label="How byhand works">
+          <div class="cli-card-list">
+            <article class="card cli-card">
               <span class="card-number">01</span>
-              <h3>Start where you are</h3>
-              <p>Run one command and stay in the terminal. There is no application to configure, workspace to organize, or interface to learn.</p>
+              <h2><span class="terminal-prompt" aria-hidden="true">&gt;_</span> Start where you are</h2>
+              <p>Run one command and stay in the terminal</p>
+              <p>There is no application to configure, workspace to organize, or interface to learn</p>
             </article>
-            <article class="card">
+            <article class="card cli-card">
               <span class="card-number">02</span>
-              <h3>Reveal the model</h3>
-              <p>Move operation by operation, connecting attention, equations, tensor shapes, and GGUF parameter sources.</p>
-            </article>
-            <article class="card">
-              <span class="card-number">03</span>
-              <h3>Share when useful</h3>
-              <p>The terminal stays the default. Export the same interactive explanation to a self-contained HTML file when you want a larger or shareable view.</p>
+              <h2><span class="terminal-prompt" aria-hidden="true">&gt;_</span> Reveal the model</h2>
+              <p>Move operation by operation, connecting attention, equations, tensor shapes, and parameter sources</p>
             </article>
           </div>
-        </div>
       </section>
 
       <section class="section">
         <div class="container install-panel">
           <div>
             <p class="eyebrow">Get started</p>
-            <h2>One command. No new workspace.</h2>
-            <p class="lead">Install on an Apple Silicon Mac, then visualize a compatible Llama-family model where you already work.</p>
+            <h2 class="terminal-section-title">One command. No new workspace.</h2>
+            <p class="lead">Install on an Apple Silicon Mac, then visualize a compatible model where you already work.</p>
             <div class="actions" style="justify-content: flex-start">
               <a class="button" href="./docs/">Read the docs</a>
             </div>
@@ -91,7 +85,7 @@ byhand model --ollama llama3.2</code></pre>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>byhand visualizer · A visualization project from byhand</span>
+        <span>byhand CLI · A visualization project from byhand</span>
         <div class="footer-links">
           <a href="https://www.byhand.ai/">byhand.ai</a>
           <a href="https://github.com/imruljubair/byhand">GitHub</a>

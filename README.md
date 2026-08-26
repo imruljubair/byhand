@@ -2,7 +2,7 @@
 
 Visual, by-hand explanations of AI systems.
 
-[byhand visualization tools](https://imruljubair.github.io/byhand/) ·
+[byhand CLI](https://imruljubair.github.io/byhand/) ·
 [Documentation](https://imruljubair.github.io/byhand/docs/) ·
 [Interactive example](https://imruljubair.github.io/byhand/examples/)
 
