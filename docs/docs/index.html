@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Docs · byhand CLI</title>
-    <meta name="description" content="Install and use byhand CLI with Ollama, local GGUF files, and public model URLs.">
+    <meta name="description" content="Install and use byhand CLI with Ollama, local GGUF files, public model URLs, and HTML or Excel export.">
     <meta property="og:title" content="Docs · byhand CLI">
-    <meta property="og:description" content="Install and use byhand with Ollama, local GGUF files, and public model URLs.">
+    <meta property="og:description" content="Install and use byhand with Ollama, local GGUF files, public model URLs, and HTML or Excel export.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://imruljubair.github.io/byhand/docs/">
     <meta property="og:image" content="https://imruljubair.github.io/byhand/assets/logo.png?v=2">
@@ -16,7 +16,7 @@
     <meta property="og:image:alt" content="byhand CLI logo">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Docs · byhand CLI">
-    <meta name="twitter:description" content="Install and use byhand with Ollama, local GGUF files, and public model URLs.">
+    <meta name="twitter:description" content="Install and use byhand with Ollama, local GGUF files, public model URLs, and HTML or Excel export.">
     <meta name="twitter:image" content="https://imruljubair.github.io/byhand/assets/logo.png?v=2">
     <meta name="twitter:image:alt" content="byhand CLI logo">
     <link rel="canonical" href="https://imruljubair.github.io/byhand/docs/">
@@ -49,6 +49,7 @@
           <a href="#install">Install</a>
           <a href="#use">Use</a>
           <a href="#html-export">HTML export</a>
+          <a href="#excel-export">Excel export</a>
           <a href="#update">Update</a>
           <a href="#uninstall">Uninstall</a>
           <a href="#troubleshooting">Troubleshooting</a>
@@ -104,6 +105,15 @@ byhand --version</code></pre>
             <p><strong>Full</strong> is the default Explainer layout. Select <strong>Side</strong> before opening the Explainer to keep the model visible beside it, or above it on narrow screens.</p>
           </section>
 
+          <section id="excel-export">
+            <h2>Excel export</h2>
+            <pre><code>byhand model --ollama llama3.2 --output excel</code></pre>
+            <p>When <code>--step</code> is omitted, Excel export includes the complete model pipeline. The workbook uses named ranges and native formulas such as <code>MMULT</code>, so each calculated output flows into the operations that follow it.</p>
+            <p>Pass <code>--step N</code> to stop the workbook at a specific operation:</p>
+            <pre><code>byhand model --ollama llama3.2 --output excel --step 10</code></pre>
+            <p>The file is written to the current directory using the model reference as its name, such as <code>llama3.2.xlsx</code>.</p>
+          </section>
+
           <section id="update">
             <h2>Update</h2>
             <p><span class="product-command">byhand</span> checks for a newer stable release at most once every 24 hours and asks before downloading. You can also check or update explicitly:</p>
@@ -113,7 +123,7 @@ byhand update --yes</code></pre>
             <p>Downloaded updates are verified against the release's <code>SHA256SUMS</code> before the executable is replaced. Set <code>BYHAND_NO_UPDATE_CHECK=1</code> to disable automatic checks.</p>
             <p>To install a specific version:</p>
             <pre><code>curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh \
-  | BYHAND_VERSION=v0.4.3 sh</code></pre>
+  | BYHAND_VERSION=v0.5.0 sh</code></pre>
           </section>
 
           <section id="uninstall">
