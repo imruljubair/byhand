@@ -9,6 +9,8 @@ Visual, by-hand explanations of AI systems.
 The current release visualizes Llama-family GGUF models from Ollama, local
 files, or public remote URLs. Terminal visualization is the default, and the
 same interactive model view can be exported as a self-contained HTML file.
+The complete model pipeline can also be exported as a formula-driven Excel
+workbook.
 
 ```bash
 byhand model --ollama llama3.2
@@ -16,6 +18,7 @@ byhand model --ollama tinyllama
 byhand model /path/to/model.gguf
 byhand model --url https://example.com/model.gguf
 byhand model --ollama llama3.2 --output html
+byhand model --ollama llama3.2 --output excel
 ```
 
 Model availability is determined from GGUF metadata, not the filename,
@@ -80,6 +83,12 @@ byhand model --url https://example.com/model.gguf
 # Self-contained interactive HTML export
 byhand model --ollama llama3.2 --output html
 
+# Complete formula-driven Excel pipeline
+byhand model --ollama llama3.2 --output excel
+
+# Excel pipeline through a specific operation
+byhand model --ollama llama3.2 --output excel --step 10
+
 # Welcome, help, and version
 byhand
 byhand model --help
@@ -92,6 +101,11 @@ operation visible. Full is the default Explainer layout. Select Side before
 opening the Explainer to keep the model visible and place the same interactive
 explainer on the right, or below the model on narrow screens. It opens directly
 in a browser without a web server or external dependencies.
+
+When `--step` is omitted for Excel, the workbook includes all model
+operations. Pass `--step N` to stop at a particular operation. The workbook
+uses named ranges and native formulas such as `MMULT`, so calculated outputs
+flow into later operations instead of being redrawn as disconnected examples.
 
 ## Update
 
@@ -141,7 +155,7 @@ To install a specific version:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh \
-  | BYHAND_VERSION=v0.4.3 sh
+  | BYHAND_VERSION=v0.5.0 sh
 ```
 
 ## Uninstall
@@ -166,12 +180,15 @@ application source code is maintained separately in a private repository.
 Release downloads include `SHA256SUMS`; the installer verifies the archive
 before extracting or installing it.
 
-Version 0.4.3 shows the byhand welcome logo after successful interactive
-installs and updates. Version 0.4.2 added the same welcome screen when `byhand`
-is launched without a subcommand. Version 0.4.1 lets verified self-updates
-request administrator permission for the final installation into root-owned
-locations. Version 0.4.0 added Full and Side HTML Operation Explainer layouts
-and replaced the learned-weight border marker with an embedded hollow diamond.
-Terminal and HTML output remain enabled for the Llama visualization family
-across Ollama, local, and remote sources. Other engine-supported model families
-will be enabled gradually in later tested releases.
+Version 0.5.0 adds the complete formula-driven Excel pipeline, including
+full-pipeline export when `--step` is omitted and source-level release switches
+for Ollama, local GGUF, and remote GGUF inputs. Version 0.4.3 shows the byhand
+welcome logo after successful interactive installs and updates. Version 0.4.2
+added the same welcome screen when `byhand` is launched without a subcommand.
+Version 0.4.1 lets verified self-updates request administrator permission for
+the final installation into root-owned locations. Version 0.4.0 added Full and
+Side HTML Operation Explainer layouts and replaced the learned-weight border
+marker with an embedded hollow diamond. Terminal, HTML, and Excel output are
+enabled for the Llama visualization family across Ollama, local, and remote
+sources. Other engine-supported model families will be enabled gradually in
+later tested releases.
