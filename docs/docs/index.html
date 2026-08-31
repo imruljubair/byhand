@@ -123,7 +123,7 @@ byhand update --yes</code></pre>
             <p>Downloaded updates are verified against the release's <code>SHA256SUMS</code> before the executable is replaced. Set <code>BYHAND_NO_UPDATE_CHECK=1</code> to disable automatic checks.</p>
             <p>To install a specific version:</p>
             <pre><code>curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh \
-  | BYHAND_VERSION=v0.5.0 sh</code></pre>
+  | BYHAND_VERSION=v0.5.1 sh</code></pre>
           </section>
 
           <section id="uninstall">
@@ -141,7 +141,7 @@ byhand update --yes</code></pre>
             <h3>Ollama model not found</h3>
             <p>Make sure Ollama is running and the requested model is already installed locally.</p>
             <h3>Remote URL does not open</h3>
-            <p>The server must make the GGUF file publicly available and support HTTP range requests.</p>
+            <p>The server must make the GGUF file publicly available and support HTTP range requests. Version 0.5.1 uses the certificate authorities bundled with the standalone binary for reliable HTTPS access, grows range sizes to reduce round trips, and shows live metadata-fetch progress.</p>
             <h3>Updating version 0.3.0</h3>
             <p>That release did not include its CA certificate bundle correctly. Use the macOS system bundle for the one-time update:</p>
             <pre><code>SSL_CERT_FILE=/etc/ssl/cert.pem byhand update</code></pre>

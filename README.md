@@ -155,7 +155,7 @@ To install a specific version:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh \
-  | BYHAND_VERSION=v0.5.0 sh
+  | BYHAND_VERSION=v0.5.1 sh
 ```
 
 ## Uninstall
@@ -180,6 +180,10 @@ application source code is maintained separately in a private repository.
 Release downloads include `SHA256SUMS`; the installer verifies the archive
 before extracting or installing it.
 
+Version 0.5.1 makes remote GGUF HTTPS access reliable in the standalone binary
+by using its bundled certificate authorities while retaining system trust. It
+also reduces remote metadata round trips with adaptive range sizes and shows
+live fetch progress in interactive terminals.
 Version 0.5.0 adds the complete formula-driven Excel pipeline, including
 full-pipeline export when `--step` is omitted and source-level release switches
 for Ollama, local GGUF, and remote GGUF inputs. Version 0.4.3 shows the byhand
