@@ -8,9 +8,59 @@
   --strong-border: #c9c9c3;
   --accent: #d33aba;
   --accent-text: #b02a99;
+  --accent-hover: #b92ea2;
+  --on-accent: #ffffff;
+  --prose-text: #444444;
   --page-title-size: clamp(2.25rem, 4vw, 3rem);
   --page-subtitle-size: 1rem;
   --max-width: 1120px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --background: #121212;
+    --surface: #1a1a1a;
+    --text: #f1f1ee;
+    --muted: #a3a39d;
+    --border: #343430;
+    --strong-border: #505049;
+    --accent: #e34dcc;
+    --accent-text: #f06ada;
+    --accent-hover: #f06ada;
+    --on-accent: #121212;
+    --prose-text: #d0d0ca;
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --background: #ffffff;
+  --surface: #f7f7f5;
+  --text: #171717;
+  --muted: #686868;
+  --border: #e4e4e0;
+  --strong-border: #c9c9c3;
+  --accent: #d33aba;
+  --accent-text: #b02a99;
+  --accent-hover: #b92ea2;
+  --on-accent: #ffffff;
+  --prose-text: #444444;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #121212;
+  --surface: #1a1a1a;
+  --text: #f1f1ee;
+  --muted: #a3a39d;
+  --border: #343430;
+  --strong-border: #505049;
+  --accent: #e34dcc;
+  --accent-text: #f06ada;
+  --accent-hover: #f06ada;
+  --on-accent: #121212;
+  --prose-text: #d0d0ca;
 }
 
 * {
@@ -54,7 +104,7 @@ a:hover {
   z-index: 10;
   padding: 0.55rem 0.8rem;
   background: var(--text);
-  color: white;
+  color: var(--background);
   transform: translateY(-160%);
 }
 
@@ -106,6 +156,29 @@ a:hover {
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
+  color: var(--text);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--muted);
+  font: inherit;
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--accent);
   color: var(--text);
 }
 
@@ -331,7 +404,7 @@ h3 {
 .lead {
   max-width: 670px;
   margin: 0 auto;
-  color: #858585;
+  color: var(--muted);
   font-size: var(--page-subtitle-size);
   font-weight: 500;
   line-height: 1.65;
@@ -354,19 +427,19 @@ h3 {
   border: 1px solid var(--accent);
   border-radius: 8px;
   background: var(--accent);
-  color: white;
+  color: var(--on-accent);
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
 }
 
 .button:hover {
-  background: #b92ea2;
+  background: var(--accent-hover);
 }
 
 .button-secondary {
   border-color: var(--accent);
-  background: white;
+  background: var(--background);
   color: var(--accent);
 }
 
@@ -539,7 +612,7 @@ pre code {
 
 .prose p,
 .prose li {
-  color: #444;
+  color: var(--prose-text);
   overflow-wrap: anywhere;
 }
 
