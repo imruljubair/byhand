@@ -572,36 +572,30 @@ pre code {
 
 .visual-tour-heading {
   width: 100%;
-  max-width: 880px;
+  max-width: 1000px;
   margin: 0 auto 1.25rem;
 }
 
 .screenshot-grid {
   display: grid;
   width: 100%;
-  max-width: 880px;
+  max-width: 1000px;
   margin: 0 auto;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: 1rem;
 }
 
-.screenshot-step-1 {
+.screenshot-step-2 {
   grid-column: 1;
   grid-row: 1;
 }
 
-.screenshot-step-2 {
-  grid-column: 1;
-  grid-row: 2;
-}
-
 .screenshot-card.screenshot-step-3 {
   grid-column: 2;
-  grid-row: 1 / span 2;
-  width: 85%;
-  justify-self: start;
-  margin-top: 4rem;
+  grid-row: 1;
+  width: 100%;
+  margin-top: 0;
 }
 
 .screenshot-card {
@@ -622,6 +616,10 @@ pre code {
 .screenshot-card a,
 .screenshot-card img {
   display: block;
+}
+
+.screenshot-image-link {
+  background: #1e1e1e;
 }
 
 .screenshot-card img {
@@ -646,7 +644,7 @@ pre code {
 
 .example-shell {
   width: 100%;
-  max-width: 880px;
+  max-width: 1000px;
   margin: 0 auto 1.25rem;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -724,7 +722,7 @@ pre code {
 
 .examples-docs-link {
   width: 100%;
-  max-width: 880px;
+  max-width: 1000px;
   margin: 0 auto;
   padding-bottom: 5rem;
 }
@@ -854,7 +852,6 @@ pre code {
     margin-bottom: 1.5rem;
   }
 
-  .screenshot-step-1,
   .screenshot-step-2,
   .screenshot-card.screenshot-step-3 {
     grid-column: auto;

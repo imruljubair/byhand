@@ -50,25 +50,18 @@
         </div>
 
         <div class="screenshot-grid">
-          <figure class="screenshot-card screenshot-step-1">
-            <a href="../assets/comm.png" aria-label="Open the terminal command screenshot at full resolution">
-              <img src="../assets/comm.png" width="2296" height="1054" loading="lazy" decoding="async" alt="Terminal showing the byhand welcome screen and the command byhand model --ollama tinyllama">
-            </a>
-            <figcaption><span>01</span> Run a model from the terminal</figcaption>
-          </figure>
-
           <figure class="screenshot-card screenshot-step-2">
-            <a href="../assets/modelv.png" aria-label="Open the model view screenshot at full resolution">
-              <img src="../assets/modelv.png" width="2699" height="2255" loading="lazy" decoding="async" alt="byhand model view showing matrices, dimensions, grouped attention blocks, and an operation annotation">
+            <a class="screenshot-image-link" href="../assets/2.png" aria-label="Open the model view screenshot at full resolution">
+              <img src="../assets/2.png" width="4000" height="2250" loading="lazy" decoding="async" alt="byhand model view for Llama 3.2 showing tensor shapes, grouped attention blocks, and the selected K projection">
             </a>
-            <figcaption><span>02</span> Navigate the model view</figcaption>
+            <figcaption><span>01</span> Step through operations and tensor shapes</figcaption>
           </figure>
 
           <figure class="screenshot-card screenshot-step-3">
-            <a href="../assets/expv.png" aria-label="Open the Operation Explainer screenshot at full resolution">
-              <img src="../assets/expv.png" width="2108" height="1695" loading="lazy" decoding="async" alt="byhand Operation Explainer showing operands, the selected result cell, and matrix multiplication math">
+            <a class="screenshot-image-link" href="../assets/3.png" aria-label="Open the operation explainer screenshot at full resolution">
+              <img src="../assets/3.png" width="4000" height="2250" loading="lazy" decoding="async" alt="byhand operation explainer for the Llama 3.2 K projection showing its input, learned weights, output, and matrix multiplication">
             </a>
-            <figcaption><span>03</span> Inspect an operation</figcaption>
+            <figcaption><span>02</span> Inspect the operands and math behind a result</figcaption>
           </figure>
         </div>
       </section>
@@ -78,7 +71,7 @@
           <div class="example-heading-copy">
             <p class="eyebrow">HTML export</p>
             <h2 id="llama-example-title">Example: llama3.2</h2>
-            <p>Example model visualization exported using:</p>
+            <p>Prefer a browser? Export the same visualization as an interactive HTML file:</p>
             <pre class="example-export-command"><code>byhand model --ollama llama3.2 --output html</code></pre>
           </div>
           <a class="button button-secondary example-open-button" href="./llama3.2.html" target="_blank" rel="noopener noreferrer" aria-label="Open example in a new tab" title="Open example in a new tab"><span aria-hidden="true">↗</span></a>
