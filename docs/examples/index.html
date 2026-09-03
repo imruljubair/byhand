@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Examples · byhand CLI</title>
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=1">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=2">
     <meta name="description" content="Explore the byhand CLI terminal workflow and an interactive HTML export.">
     <meta property="og:title" content="Examples · byhand CLI">
     <meta property="og:description" content="Explore the byhand CLI terminal workflow and an interactive HTML export.">
@@ -28,9 +28,8 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <nav class="nav" aria-label="Primary navigation">
-        <a class="brand" href="../"><span class="product-command">byhand</span> CLI</a>
+        <a class="brand" href="../"><img class="brand-mark" src="../assets/favicon.svg?v=2" alt=""><span><span class="product-command">byhand</span> CLI</span></a>
         <div class="nav-links">
-          <a href="../">About</a>
           <a href="../docs/">Docs</a>
           <a href="./" aria-current="page">Examples</a>
           <a href="https://github.com/imruljubair/byhand">GitHub</a>
@@ -42,30 +41,39 @@
     <main id="main" class="container">
       <header class="page-intro">
         <p class="eyebrow">Examples</p>
-        <h1 class="terminal-page-title">See the model in the terminal.</h1>
-        <p class="lead" style="margin-left: 0">Run <span class="product-command">byhand</span> where you already work, then navigate the model and inspect individual operations without switching to another application.</p>
+        <h1 class="terminal-page-title">See how a model works—in your terminal.</h1>
+        <p class="lead" style="margin-left: 0">Load an Ollama or GGUF model, step through its architecture, and inspect the inputs, outputs, tensor shapes, and math behind each operation.</p>
       </header>
 
-      <section class="visual-tour" aria-label="Terminal workflow">
+      <section class="visual-tour" aria-label="From model to math">
         <div class="visual-tour-heading">
-          <p class="eyebrow">Terminal workflow</p>
+          <p class="eyebrow">From model to math</p>
+          <p class="visual-tour-intro">Start an Ollama model in your terminal:</p>
+          <pre class="visual-tour-command"><code>byhand model --ollama llama3.2</code></pre>
         </div>
 
         <div class="screenshot-grid">
           <figure class="screenshot-card screenshot-step-2">
             <a class="screenshot-image-link" href="../assets/2.png" aria-label="Open the model view screenshot at full resolution">
-              <img src="../assets/2.png" width="4000" height="2250" loading="lazy" decoding="async" alt="byhand model view for Llama 3.2 showing tensor shapes, grouped attention blocks, and the selected K projection">
+              <picture>
+                <source srcset="../assets/2-preview.webp" type="image/webp">
+                <img src="../assets/2.png" width="2000" height="1125" loading="lazy" decoding="async" alt="byhand model view for Llama 3.2 showing tensor shapes, grouped attention blocks, and the selected K projection">
+              </picture>
             </a>
             <figcaption><span>01</span> Step through operations and tensor shapes</figcaption>
           </figure>
 
           <figure class="screenshot-card screenshot-step-3">
             <a class="screenshot-image-link" href="../assets/3.png" aria-label="Open the operation explainer screenshot at full resolution">
-              <img src="../assets/3.png" width="4000" height="2250" loading="lazy" decoding="async" alt="byhand operation explainer for the Llama 3.2 K projection showing its input, learned weights, output, and matrix multiplication">
+              <picture>
+                <source srcset="../assets/3-preview.webp" type="image/webp">
+                <img src="../assets/3.png" width="2000" height="1125" loading="lazy" decoding="async" alt="byhand operation explainer for the Llama 3.2 K projection showing its input, learned weights, output, and matrix multiplication">
+              </picture>
             </a>
             <figcaption><span>02</span> Inspect the operands and math behind a result</figcaption>
           </figure>
         </div>
+        <p class="screenshot-hint">Select a screenshot to view it at full resolution.</p>
       </section>
 
       <section class="example-shell" aria-labelledby="llama-example-title">
