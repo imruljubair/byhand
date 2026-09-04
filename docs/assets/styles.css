@@ -827,6 +827,20 @@ pre code {
   border: 0;
 }
 
+.excel-viewport {
+  width: 100%;
+  height: 620px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.excel-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .examples-docs-link {
   width: 100%;
   max-width: 1000px;
@@ -1021,7 +1035,8 @@ pre code {
     flex-direction: column;
   }
 
-  .example-viewport {
+  .example-viewport,
+  .excel-viewport {
     height: 60dvh;
     min-height: 360px;
     max-height: 480px;
@@ -1089,13 +1104,15 @@ pre code {
     padding-left: 1.25rem;
   }
 
-  .example-viewport {
+  .example-viewport,
+  .excel-viewport {
     min-height: 340px;
   }
 }
 
 @media (max-width: 760px) and (max-height: 600px) {
-  .example-viewport {
+  .example-viewport,
+  .excel-viewport {
     height: 68dvh;
     min-height: 320px;
   }
