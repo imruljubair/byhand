@@ -355,6 +355,281 @@ a:hover {
   margin-top: 0.35rem;
 }
 
+.home-hero {
+  padding: 4.75rem 0 5rem;
+}
+
+.home-hero-copy {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.home-hero-copy .eyebrow {
+  margin-bottom: 1rem;
+}
+
+.home-hero-copy h1 {
+  margin-bottom: 1.35rem;
+  font-size: clamp(2.35rem, 4.6vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+}
+
+.home-hero-copy h1 .terminal-prompt {
+  display: inline-block;
+  margin-right: 0.16em;
+  font-size: 0.82em;
+}
+
+.home-hero-lead {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.12rem;
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.home-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.home-text-link,
+.home-inline-link {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration-color: var(--accent);
+}
+
+.home-text-link {
+  margin-left: 0.35rem;
+}
+
+.home-product-proof {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1rem;
+}
+
+.home-preview {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--strong-border);
+  border-radius: 14px;
+  background: #171717;
+  box-shadow: 0 22px 60px rgb(0 0 0 / 0.14);
+}
+
+.home-preview picture,
+.home-preview img {
+  display: block;
+  width: 100%;
+}
+
+.home-preview img {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.home-preview figcaption {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  border-top: 1px solid #343430;
+  color: #aaa9a4;
+  font-size: 0.85rem;
+}
+
+.home-preview figcaption span {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.home-capabilities {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.45fr;
+  gap: 0;
+  margin: 2rem 0 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  list-style: none;
+}
+
+.home-capabilities li {
+  padding: 1rem 1.15rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.home-capabilities li + li {
+  border-left: 1px solid var(--border);
+}
+
+.home-capabilities strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--text);
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.home-how {
+  background: var(--surface);
+}
+
+.home-section-heading {
+  max-width: 720px;
+  margin-bottom: 2.25rem;
+}
+
+.home-section-heading .eyebrow,
+.home-install-heading .eyebrow {
+  margin-bottom: 0.8rem;
+}
+
+.home-section-heading h2,
+.home-install-heading h2 {
+  margin-bottom: 0;
+}
+
+.home-step-grid,
+.home-output-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.home-step {
+  min-width: 0;
+  padding: 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--background);
+}
+
+.home-step .card-number {
+  margin-bottom: 2.2rem;
+}
+
+.home-step h3,
+.home-output-grid h3 {
+  margin-bottom: 0.6rem;
+}
+
+.home-step p,
+.home-output-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.home-step > code {
+  display: block;
+  margin-top: 1rem;
+  overflow-x: auto;
+  color: var(--accent-text);
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+
+.home-output-grid article {
+  min-width: 0;
+  padding: 1.25rem 0 1.5rem;
+  border-top: 2px solid var(--accent);
+}
+
+.home-output-label {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--accent-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.home-inline-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+.home-install-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  align-items: end;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.home-install-heading > p {
+  margin: 0 0 0.25rem;
+  color: var(--muted);
+}
+
+.home-command {
+  position: relative;
+}
+
+.home-command pre {
+  padding: 1.5rem 6rem 1.5rem 1.5rem;
+  border-left: 2px solid var(--accent);
+  font-size: 0.92rem;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  min-width: 70px;
+  min-height: 38px;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--strong-border);
+  border-radius: 7px;
+  background: var(--background);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.copy-button:hover,
+.copy-button:focus-visible {
+  border-color: var(--accent);
+}
+
+.home-install-footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 1.2rem;
+}
+
+.home-install-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.home-install-footer strong {
+  color: var(--text);
+}
+
 :is(
   .terminal-page-title,
   .terminal-section-title,
@@ -934,6 +1209,71 @@ pre code {
     margin-bottom: 1.25rem;
   }
 
+  .home-hero {
+    padding: 3.5rem 0 3.75rem;
+  }
+
+  .home-hero-copy {
+    margin-bottom: 2.25rem;
+    text-align: left;
+  }
+
+  .home-hero-copy h1 {
+    font-size: clamp(2.2rem, 8.5vw, 3.1rem);
+  }
+
+  .home-hero-lead {
+    font-size: 1rem;
+  }
+
+  .home-actions {
+    justify-content: flex-start;
+  }
+
+  .home-text-link {
+    width: 100%;
+    margin: 0.35rem 0 0;
+  }
+
+  .home-product-proof,
+  .home-step-grid,
+  .home-output-grid,
+  .home-install-heading,
+  .home-install-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .home-product-proof {
+    gap: 0.85rem;
+  }
+
+  .home-capabilities {
+    grid-template-columns: 1fr;
+  }
+
+  .home-capabilities li + li {
+    border-top: 1px solid var(--border);
+    border-left: 0;
+  }
+
+  .home-step-grid,
+  .home-output-grid {
+    gap: 0.8rem;
+  }
+
+  .home-step .card-number {
+    margin-bottom: 1.25rem;
+  }
+
+  .home-install-heading {
+    align-items: start;
+    gap: 1.15rem;
+  }
+
+  .home-install-footer {
+    gap: 0.65rem;
+  }
+
   .desktop-break {
     display: none;
   }
@@ -1085,6 +1425,37 @@ pre code {
   .actions {
     width: 100%;
     margin-top: 1.75rem;
+  }
+
+  .home-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .home-actions .button {
+    width: 100%;
+  }
+
+  .home-text-link {
+    margin: 0.45rem 0 0;
+    text-align: center;
+  }
+
+  .home-preview figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .home-command pre {
+    padding: 4.15rem 1rem 1.15rem;
+    font-size: 0.72rem;
+  }
+
+  .copy-button {
+    top: 0.75rem;
+    left: 1rem;
+    right: auto;
   }
 
   .actions .button {

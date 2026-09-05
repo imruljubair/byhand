@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>byhand CLI</title>
+    <title>byhand CLI · Visualize language models operation by operation</title>
     <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg?v=2">
-    <meta name="description" content="Low-effort AI model visualization in the terminal you already use, with no complex new interface to learn.">
-    <meta property="og:title" content="byhand CLI">
-    <meta property="og:description" content="Make AI models easier to understand without adding another complex interface.">
+    <meta name="description" content="Explore how compatible GGUF language models work, operation by operation, from local files, public URLs, or Ollama.">
+    <meta property="og:title" content="byhand CLI · Visualize language models operation by operation">
+    <meta property="og:description" content="Explore compatible GGUF language models from local files, public URLs, or Ollama—operation by operation.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://imruljubair.github.io/byhand/">
     <meta property="og:image" content="https://imruljubair.github.io/byhand/assets/logo.png?v=2">
@@ -16,13 +16,14 @@
     <meta property="og:image:height" content="540">
     <meta property="og:image:alt" content="byhand CLI logo">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="byhand CLI">
-    <meta name="twitter:description" content="Make AI models easier to understand without adding another complex interface.">
+    <meta name="twitter:title" content="byhand CLI · Visualize language models operation by operation">
+    <meta name="twitter:description" content="Explore compatible GGUF language models from local files, public URLs, or Ollama—operation by operation.">
     <meta name="twitter:image" content="https://imruljubair.github.io/byhand/assets/logo.png?v=2">
     <meta name="twitter:image:alt" content="byhand CLI logo">
     <link rel="canonical" href="https://imruljubair.github.io/byhand/">
     <script src="./assets/theme.js"></script>
-    <link rel="stylesheet" href="./assets/styles.css">
+    <script src="./assets/home.js?v=1" defer></script>
+    <link rel="stylesheet" href="./assets/styles.css?v=5">
   </head>
   <body class="home-page">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -39,48 +40,115 @@
     </header>
 
     <main id="main">
-      <section class="cli-hero container" aria-labelledby="cli-title">
-        <div class="cli-hero-layout">
-          <div class="cli-copy">
-            <h1 id="cli-title"><span class="terminal-prompt">&gt;_</span> <span class="product-command">byhand</span> <span class="cli-title-end"><strong>CLI</strong><img class="cli-title-logo" src="./assets/favicon.svg?v=2" alt="" aria-hidden="true" decoding="async"></span></h1>
-            <div class="cli-intro">
-              <p>
-                <span><a class="research-link" href="https://www.byhand.ai/">By Hand Research</a> explores model interpretability through math and algorithms. The <code>byhand</code> CLI brings that research to your terminal, visualizing how AI systems work. <i class="terminal-cursor" aria-hidden="true"></i></span>
-              </p>
-            </div>
+      <section class="home-hero container" aria-labelledby="home-title">
+        <div class="home-hero-copy">
+          <p class="eyebrow">Model interpretability, made visual</p>
+          <h1 id="home-title"><span class="terminal-prompt" aria-hidden="true">&gt;_</span> See inside a language model.</h1>
+          <p class="home-hero-lead"><span class="product-command">byhand</span> reveals model architecture, tensor shapes, and the math connecting each operation—without loading tensor weights.</p>
+          <div class="home-actions">
+            <a class="button" href="./examples/">View interactive example</a>
+            <a class="button button-secondary" href="#install">Install byhand</a>
+            <a class="home-text-link" href="./docs/">Read the docs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="home-product-proof" aria-label="byhand model visualization previews">
+          <figure class="home-preview home-preview-model">
+            <picture>
+              <source srcset="./assets/2-preview.webp" type="image/webp">
+              <img src="./assets/2.png" alt="byhand terminal view showing the operations and tensor shapes in a Llama model" width="1920" height="1080" decoding="async">
+            </picture>
+            <figcaption><span>Model View</span> Follow the architecture from embedding to logits.</figcaption>
+          </figure>
+          <figure class="home-preview home-preview-explainer">
+            <picture>
+              <source srcset="./assets/3-preview.webp" type="image/webp">
+              <img src="./assets/3.png" alt="byhand Operation Explainer showing matrix operands, selected cells, dimensions, and equation" width="1920" height="1080" loading="lazy" decoding="async">
+            </picture>
+            <figcaption><span>Operation Explainer</span> Inspect the math behind each result.</figcaption>
+          </figure>
+        </div>
+
+        <ul class="home-capabilities" aria-label="Model support and data access">
+          <li><strong>Model sources</strong> Local files · Public URLs · Ollama</li>
+          <li><strong>Explains</strong> Architecture · Shapes · Operations</li>
+          <li><strong>Reads only</strong> Metadata and tensor descriptors—never weight values</li>
+        </ul>
+      </section>
+
+      <section class="section home-how" aria-labelledby="how-title">
+        <div class="container">
+          <div class="home-section-heading">
+            <p class="eyebrow">How it works</p>
+            <h2 id="how-title" class="terminal-section-title">From model file to understandable math.</h2>
+          </div>
+          <div class="home-step-grid">
+            <article class="home-step">
+              <span class="card-number">01</span>
+              <h3>Load a model</h3>
+              <p>Point <span class="product-command">byhand</span> at an Ollama model, a local GGUF file, or a public GGUF URL.</p>
+              <code>byhand model /path/to/model.gguf</code>
+            </article>
+            <article class="home-step">
+              <span class="card-number">02</span>
+              <h3>Follow the computation</h3>
+              <p>Move through attention, normalization, residual paths, tensor shapes, equations, and parameter sources.</p>
+            </article>
+            <article class="home-step">
+              <span class="card-number">03</span>
+              <h3>Choose your depth</h3>
+              <p>Survey the full architecture, focus on one operation, or trace how calculated values flow through the pipeline.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="cli-principles container" aria-label="How byhand works">
-          <div class="cli-card-list">
-            <article class="card cli-card">
-              <span class="card-number">01</span>
-              <h2><span class="terminal-prompt" aria-hidden="true">&gt;_</span> Start where you are</h2>
-              <p>Run one command and stay in the terminal</p>
-              <p>There is no application to configure, workspace to organize, or interface to learn</p>
+      <section class="section home-outputs" aria-labelledby="outputs-title">
+        <div class="container">
+          <div class="home-section-heading">
+            <p class="eyebrow">Explore and export</p>
+            <h2 id="outputs-title" class="terminal-section-title">Use the view that fits the question.</h2>
+          </div>
+          <div class="home-output-grid">
+            <article>
+              <span class="home-output-label">Terminal</span>
+              <h3>Navigate the whole model</h3>
+              <p>Step through operations and open a focused matrix explainer without leaving your terminal.</p>
             </article>
-            <article class="card cli-card">
-              <span class="card-number">02</span>
-              <h2><span class="terminal-prompt" aria-hidden="true">&gt;_</span> Reveal the model</h2>
-              <p>Move operation by operation, connecting attention, equations, tensor shapes, and parameter sources</p>
+            <article>
+              <span class="home-output-label">HTML</span>
+              <h3>Share an interactive view</h3>
+              <p>Export every step and explainer as one self-contained file that opens in a browser.</p>
+            </article>
+            <article>
+              <span class="home-output-label">Excel</span>
+              <h3>Trace the numerical pipeline</h3>
+              <p>Follow formula-driven proxy tensors whose calculated outputs flow into later operations.</p>
             </article>
           </div>
+          <a class="home-inline-link" href="./examples/">See output examples <span aria-hidden="true">→</span></a>
+        </div>
       </section>
 
-      <section class="section">
-        <div class="container install-panel">
-          <div>
-            <p class="eyebrow">Get started</p>
-            <h2 class="terminal-section-title">One command. No new workspace.</h2>
-            <p class="lead">Install on an Apple Silicon Mac, then visualize a compatible model where you already work.</p>
-            <div class="actions" style="justify-content: flex-start">
-              <a class="button" href="./docs/">Read the docs</a>
+      <section class="section home-install" id="install" aria-labelledby="install-title">
+        <div class="container">
+          <div class="home-install-heading">
+            <div>
+              <p class="eyebrow">Get started</p>
+              <h2 id="install-title" class="terminal-section-title">One command. No new workspace.</h2>
             </div>
+            <p>Install on an Apple Silicon Mac, then open a compatible Llama-family model where you already work.</p>
           </div>
-          <pre aria-label="Installation and first command"><code>curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh | sh
+          <div class="home-command" data-copy-command>
+            <pre aria-label="Installation and first model command"><code>curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh | sh
 
 byhand model /path/to/model.gguf</code></pre>
+            <button class="copy-button" type="button" data-copy-button aria-label="Copy installation and example commands">Copy</button>
+          </div>
+          <div class="home-install-footer">
+            <p><strong>What it reads:</strong> GGUF metadata and tensor descriptors—not tensor weight values.</p>
+            <p>The current standalone release supports macOS on Apple Silicon and is distributed unsigned outside the Mac App Store. <a href="./docs/">Installation details</a></p>
+          </div>
         </div>
       </section>
     </main>
