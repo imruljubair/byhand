@@ -46,9 +46,12 @@
           <h1 id="home-title"><span class="terminal-prompt" aria-hidden="true">&gt;_</span> See inside a language model.</h1>
           <p class="home-hero-lead">Wondering what happens inside an LLM? Follow the architecture and math from your terminal.</p>
           <div class="home-actions">
-            <a class="button" href="./examples/">View interactive example</a>
-            <a class="button button-secondary" href="#install">Install byhand</a>
+            <a class="button" href="#install">Install</a>
             <a class="home-text-link" href="./docs/">Read the docs <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="home-requirements">
+            <p><strong>Current system requirement:</strong> macOS on an Apple Silicon Mac (M1 or newer). Intel Macs, Windows, and Linux are not supported yet.</p>
+            <p><strong>Bring your model:</strong> Works with Ollama, local GGUF files, and public GGUF URLs.</p>
           </div>
         </div>
 
@@ -86,8 +89,8 @@
             <article class="home-step">
               <span class="card-number">01</span>
               <h3>Load a model</h3>
-              <p>Point <span class="product-command">byhand</span> at an Ollama model, a local GGUF file, or a public GGUF URL.</p>
-              <code>byhand model /path/to/model.gguf</code>
+              <p>Start with a public GGUF URL—no Ollama installation or local model download required.</p>
+              <code>byhand model --url &lt;direct-gguf-url&gt;</code>
             </article>
             <article class="home-step">
               <span class="card-number">02</span>
@@ -135,19 +138,19 @@
           <div class="home-install-heading">
             <div>
               <p class="eyebrow">Get started</p>
-              <h2 id="install-title" class="terminal-section-title">One command. No new workspace.</h2>
+              <h2 id="install-title" class="terminal-section-title">Install, then open a working model.</h2>
             </div>
-            <p>Install on an Apple Silicon Mac, then open a compatible model where you already work.</p>
+            <p>The fastest first run uses a public model URL, so you do not need Ollama or a downloaded GGUF file. <a href="./docs/#quick-start">Read the quick start <span aria-hidden="true">→</span></a></p>
           </div>
           <div class="home-command" data-copy-command>
             <pre aria-label="Installation and first model command"><code>curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh | sh
 
-byhand model /path/to/model.gguf</code></pre>
+byhand model --url https://huggingface.co/tensorblock/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q2_K.gguf</code></pre>
             <button class="copy-button" type="button" data-copy-button aria-label="Copy installation and example commands">Copy</button>
           </div>
           <div class="home-install-footer">
             <p><strong>What it reads:</strong> GGUF metadata and tensor descriptors—not tensor weight values.</p>
-            <p>The current standalone release supports macOS on Apple Silicon and is distributed unsigned outside the Mac App Store. <a href="./docs/">Installation details</a></p>
+            <p>The current standalone release supports macOS on Apple Silicon and is distributed unsigned outside the Mac App Store. <a href="./docs/#requirements">Installation details</a></p>
           </div>
         </div>
       </section>

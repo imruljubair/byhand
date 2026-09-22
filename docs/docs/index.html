@@ -49,7 +49,9 @@
         <nav class="docs-nav" aria-label="Documentation sections">
           <a href="#requirements">Requirements</a>
           <a href="#install">Install</a>
-          <a href="#use">Use</a>
+          <a href="#quick-start">Quick start</a>
+          <a href="#model-sources">Model sources</a>
+          <a href="#supported-models">Supported models</a>
           <a href="#html-export">HTML export</a>
           <a href="#excel-export">Excel export</a>
           <a href="#update">Update</a>
@@ -61,10 +63,11 @@
           <section id="requirements">
             <h2>Requirements</h2>
             <ul>
-              <li>macOS on Apple Silicon (<code>arm64</code>)</li>
+              <li><strong>macOS on Apple Silicon (<code>arm64</code>)</strong>, including M1 and newer Macs</li>
               <li>A compatible model from Ollama, a local GGUF file, or a public GGUF URL</li>
               <li>HTTP range-request support when using a remote model URL</li>
             </ul>
+            <p class="note"><strong>Not supported yet:</strong> Intel Macs (<code>x86_64</code>), Windows, and Linux. To check your Mac, run <code>uname -m</code>. A supported Mac prints <code>arm64</code>.</p>
             <p class="note">The current build is unsigned and has not been notarized by Apple.</p>
           </section>
 
@@ -83,21 +86,57 @@ curl -fsSL https://raw.githubusercontent.com/imruljubair/byhand/main/install.sh 
 source "$HOME/.zprofile"</code></pre>
           </section>
 
-          <section id="use">
-            <h2>Use</h2>
-            <p>The terminal visualization is the default. Run one command, then navigate the model without switching to another application.</p>
+          <section id="quick-start">
+            <h2>Quick start</h2>
+            <p>Use this known-working public Llama 3.2 GGUF for the fastest first run. This method does not require Ollama or a local model download.</p>
+            <pre><code>byhand model --url https://huggingface.co/tensorblock/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q2_K.gguf</code></pre>
+            <p>The terminal visualization opens after <span class="product-command">byhand</span> reads the model metadata and tensor descriptors.</p>
+          </section>
+
+          <section id="model-sources">
+            <h2>Choose a model source</h2>
+            <h3>Public GGUF URL—recommended for first-time users</h3>
+            <p>No Ollama installation or local GGUF download is required. To get a URL from Hugging Face:</p>
+            <ol>
+              <li>Open a model repository and select <strong>Files and versions</strong>.</li>
+              <li>Choose a file whose name ends in <code>.gguf</code>.</li>
+              <li>Open the file and copy its direct <strong>download</strong> link.</li>
+              <li>Pass that URL to <code>byhand model --url</code>.</li>
+            </ol>
+            <pre><code>byhand model --url DIRECT_GGUF_URL</code></pre>
+            <p>The file must be public, and its server must support HTTP range requests.</p>
+
             <h3>Ollama model</h3>
-            <pre><code>byhand model --ollama llama3.2
-byhand model --ollama tinyllama</code></pre>
+            <p>Installing Ollama does not install a model automatically. Install <a href="https://ollama.com/">Ollama</a>, pull a supported model, and then open it with <span class="product-command">byhand</span>:</p>
+            <pre><code>ollama pull llama3.2
+ollama list
+byhand model --ollama llama3.2</code></pre>
+
             <h3>Local GGUF file</h3>
+            <p>Use this method when you already have a compatible GGUF file on disk:</p>
             <pre><code>byhand model /path/to/model.gguf</code></pre>
-            <h3>Public remote GGUF file</h3>
-            <pre><code>byhand model --url https://example.com/model.gguf</code></pre>
+
             <h3>Help and version</h3>
             <pre><code>byhand
 byhand model --help
 byhand --version</code></pre>
             <p>Model availability is determined from GGUF metadata, not the filename, Ollama repository name, or input source.</p>
+          </section>
+
+          <section id="supported-models">
+            <h2>Supported models</h2>
+            <p>The current release supports Llama-family GGUF architectures. Support is determined from the architecture stored in GGUF metadata, not the model filename or source.</p>
+            <table>
+              <thead>
+                <tr><th scope="col">Model family</th><th scope="col">Status</th><th scope="col">Sources</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Llama 3.x</td><td>Supported</td><td>Ollama, local GGUF, remote GGUF</td></tr>
+                <tr><td>TinyLlama</td><td>Supported</td><td>Ollama, local GGUF, remote GGUF</td></tr>
+                <tr><td>Llama 2</td><td>Supported</td><td>Ollama, local GGUF, remote GGUF</td></tr>
+                <tr><td>Qwen and other non-Llama architectures</td><td>Not currently supported</td><td>—</td></tr>
+              </tbody>
+            </table>
           </section>
 
           <section id="html-export">
@@ -141,7 +180,14 @@ byhand update --yes</code></pre>
             <h3>Command not found</h3>
             <p>Confirm the installation directory is included in your <code>PATH</code>. User installations normally use <code>$HOME/.local/bin</code>.</p>
             <h3>Ollama model not found</h3>
-            <p>Make sure Ollama is running and the requested model is already installed locally.</p>
+            <p>Installing Ollama is only the first step. Confirm the model is installed locally, pull it if necessary, and try again:</p>
+            <pre><code>ollama list
+ollama pull llama3.2
+byhand model --ollama llama3.2</code></pre>
+            <h3>This Mac is not supported</h3>
+            <p>Run <code>uname -m</code>. The current release requires <code>arm64</code>, which identifies an Apple Silicon Mac. An <code>x86_64</code> result identifies an unsupported Intel Mac.</p>
+            <h3>Model architecture is unsupported</h3>
+            <p>The current release supports Llama-family GGUF architectures. Qwen and other non-Llama architectures are not supported yet. See <a href="#supported-models">Supported models</a> for tested families.</p>
             <h3>Remote URL does not open</h3>
             <p>The server must make the GGUF file publicly available and support HTTP range requests. Version 0.5.1 uses the certificate authorities bundled with the standalone binary for reliable HTTPS access, grows range sizes to reduce round trips, and shows live metadata-fetch progress.</p>
             <h3>Updating version 0.3.0</h3>

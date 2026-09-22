@@ -400,6 +400,31 @@ a:hover {
   margin-top: 2rem;
 }
 
+.home-requirements {
+  max-width: 720px;
+  margin: 1.15rem auto 0;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.home-requirements p {
+  margin: 0;
+}
+
+.home-requirements p + p {
+  margin-top: 0.45rem;
+}
+
+.home-requirements strong {
+  color: var(--text);
+}
+
 .home-text-link,
 .home-inline-link {
   color: var(--text);
@@ -579,6 +604,12 @@ a:hover {
 .home-install-heading > p {
   margin: 0 0 0.25rem;
   color: var(--muted);
+}
+
+.home-install-heading > p a {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration-color: var(--accent);
 }
 
 .home-command {
@@ -915,6 +946,27 @@ pre code {
 .prose pre {
   margin: 0.8rem 0 1rem;
   border-left: 2px solid var(--accent);
+}
+
+.prose table {
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.prose th,
+.prose td {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  color: var(--prose-text);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  background: var(--surface);
+  color: var(--text);
 }
 
 .note {
